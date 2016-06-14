@@ -1,0 +1,11 @@
+MATCH (lon:Client {cname:"london"})-[:BOUGHT]->(journal)<-[:BOUGHT]-(other)
+WHERE NOT (lon)-[BOUGHT]-(other)
+RETURN other.cname, count(journal)
+ORDER BY count(journal) DESC
+
+
+MATCH (a:Client)-[:BOUGHT]->(b)
+WHERE b.cname=1133
+RETURN a,b;
+
+
